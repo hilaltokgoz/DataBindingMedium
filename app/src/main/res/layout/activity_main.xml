@@ -2,14 +2,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="mainActivityObject"
             type="com.databindingmedium.MainActivity" />
+
         <variable
             name="sumResult"
             type="String" />
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
     </data>
 
@@ -22,9 +26,9 @@
             android:id="@+id/activityTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="HELLO"
             android:textSize="28sp"
-            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -38,66 +42,62 @@
             android:layout_marginTop="100dp"
 
             android:hint="First Number"
-            android:textColor="@color/black"
             android:phoneNumber="true"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Deprecated,MissingConstraints">
-        </EditText>
+            tools:ignore="Deprecated,MissingConstraints"></EditText>
 
         <EditText
             android:id="@+id/secondNumberEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:phoneNumber="true"
+            android:hint="Second Number"
 
+            android:phoneNumber="true"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/firstNumberEditText"
-            tools:ignore="MissingConstraints"
-            android:hint="Second Number">
-        </EditText>
+            tools:ignore="MissingConstraints"></EditText>
 
         <Button
             android:id="@+id/resultButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            app:backgroundTint="#F44336"
             android:gravity="center"
             android:minWidth="150dp"
             android:minHeight="50dp"
-            android:text="SHOW TOTAL "
             android:onClick="@{()->mainActivityObject.sumCalculation(firstNumberEditText.getText().toString(),secondNumberEditText.getText().toString())}"
+            android:text="SHOW TOTAL "
             android:textColor="#000000"
             android:textSize="24sp"
+            app:backgroundTint="#F44336"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/secondNumberEditText"
-            tools:ignore="MissingConstraints">
-        </Button>
+            tools:ignore="MissingConstraints"></Button>
 
         <TextView
             android:id="@+id/resultTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resultButton"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
             android:minWidth="150dp"
             android:minHeight="50dp"
             android:text="@{sumResult}"
             android:textColor="@{Integer.parseInt(sumResult) > 20 ? @color/green: @color/red}"
-            android:visibility="@{Integer.parseInt(sumResult)>20 ? View.INVISIBLE :View.VISIBLE}"
             android:textSize="24dp"
-            android:gravity="center"
-            android:layout_marginTop="70dp">
-        </TextView>
+            android:visibility="@{Integer.parseInt(sumResult)>20 ? View.INVISIBLE :View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultButton"></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
